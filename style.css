@@ -1,7 +1,7 @@
 /* --- 1. Base / Reset --- */
 :root {
     --bg-color: #F2ECE4;      /* 背景：一番左の薄いベージュ */
-    --accent-color: #006D77;  
+    --accent-color: #A66348;  
     --text-color: #5E5452;    /* 文字：一番右の濃いブラウン */
     --white: #ffffff;
 }

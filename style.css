@@ -1,0 +1,222 @@
+/* --- 1. Base / Reset --- */
+:root {
+    --bg-color: #F2ECE4;      /* 背景：一番左の薄いベージュ */
+    --accent-color: #006D77;  
+    --text-color: #5E5452;    /* 文字：一番右の濃いブラウン */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+}
+
+/* --- 2. Hero Section --- */
+/* メニューボタン */
+.menu-btn {
+    position: fixed; top: 20px; right: 20px; z-index: 100;
+    width: 40px; height: 40px; background: var(--main-text); border: none; cursor: pointer;
+}
+.menu-btn span {
+    display: block; width: 25px; height: 2px; background: #fff; margin: 5px auto;
+    transition: 0.3s;
+}
+
+/* メニューの中身（全画面） */
+.nav-menu {
+    position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+    background: var(--text-color); z-index: 99; transition: 0.5s;
+    display: flex; align-items: center; justify-content: center;
+}
+.nav-menu.active { right: 0; }
+.nav-menu ul { list-style: none; text-align: center; padding: 0; }
+.nav-menu a { color: #fff; text-decoration: none; font-size: 2rem; font-family: 'Oswald'; display: block; padding: 20px; }
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 動画の暗さ調整 */
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.main-copy {
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+}
+
+.sub-copy {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* --- 3. News Section --- */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 80px 0;
+}
+
+/* ニュースセクション */
+.news-item {
+    background: rgba(255, 255, 255, 0.4); /* 白を少し混ぜて可読性アップ */
+    border-left: 5px solid var(--accent-color); /* 横にアクセント色を配置 */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.news-item h3 {
+    color: var(--text-color);
+}
+
+/* --- 4. Chart Section --- */
+.chart-container {
+    width: 100%;
+    max-width: 250px; /* グラフ1つのサイズ */
+    margin: 40px auto;
+    text-align: center;
+}
+
+.stats-section {
+    background: var(--white); /* グラフ部分はあえて白背景で際立たせる */
+    padding: 60px 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    letter-spacing: 0.2em;
+}
+
+/* グラフを並べるグリッド */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.chart-item {
+    position: relative;
+    padding: 20px;
+    color: #006D77;
+}
+
+.chart-text {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.chart-text strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-family: 'Oswald', sans-serif;
+}
+/* map */
+.map-container {
+    filter: sepia(0.5) contrast(1.2); /* 地図を少し茶色っぽく加工してサイトに馴染ませる */
+    margin-top: 20px;
+}
+
+/* --- Footer Styles --- */
+.main-footer {
+    background: var(--text-color);
+    border-top: 1px solid #222; /* 境目にうっすらライン */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: var(--bg-color);
+}
+
+.footer-sns {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* アイコン同士の間隔 */
+    margin-bottom: 40px;
+}
+
+.footer-sns a {
+    display: inline-block;
+    width: 30px;  /* アイコンのサイズ */
+    height: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-sns svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--bg-color); /* アイコンの色を白に */
+}
+
+/* ホバー時の演出（少し浮いて明るくなる） */
+.footer-sns a:hover {
+    transform: translateY(-5px);
+    opacity: 0.7;
+}
+
+.copyright {
+    font-size: 0.7rem;
+    color: var(--bg-color);
+    letter-spacing: 0.05em;
+}
+
+/* --- 5. Responsive --- */
+@media (min-width: 768px) {
+    .main-copy {
+        font-size: 4rem;
+    }
+    .sub-copy {
+        font-size: 1.2rem;
+    }
+}
